@@ -21,16 +21,11 @@ export function CountryCard({
         <p>
           <span>Region:</span> {region}
         </p>
-        {capital?.length > 1 ? (
+        {capital && (
           <p>
-            <span>Capitals:</span> {capital.join(', ')}
+            <span>{capital.length > 1 ? 'Capitals:' : 'Capital:'}</span>{' '}
+            {capital?.join(', ')}
           </p>
-        ) : capital !== undefined ? (
-          <p>
-            <span>Capital:</span> {capital}
-          </p>
-        ) : (
-          ''
         )}
       </div>
     </StyledArticle>

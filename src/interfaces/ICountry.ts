@@ -1,8 +1,19 @@
 export interface ICountry {
+  borders: string[]
   capital: string[]
+  cca2: string
+  currencies: {
+    [currency: string]: {
+      name: string
+      symbol: string
+    }
+  }
   flags: {
     png: string
     svg: string
+  }
+  languages: {
+    [language: string]: string
   }
   name: {
     common: string
@@ -15,4 +26,6 @@ export interface ICountry {
   }
   population: number
   region: string
+  subregion: string
+  tld: string[]
 }

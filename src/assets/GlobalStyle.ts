@@ -2,27 +2,33 @@ import { createGlobalStyle } from 'styled-components'
 
 export const GlobalStyle = createGlobalStyle`
   :root {
-    --clr-dark-mode-elements: hsl(209, 23%, 22%);
-    --clr-dark-mode-background: hsl(207, 26%, 17%);
-    --clr-light-mode-text: hsl(200, 15%, 8%);
-    --clr-light-mode-input: hsl(0, 0%, 52%);
-    --clr-light-mode-background: hsl(0, 0%, 98%);
-    --clr-dark-mode-text-light-mode-elements: hsl(0, 0%, 100%);
-
-    --bs-100: rgba(0,0,0,.2);
+    --bs-100: hsla(0, 0%, 0%, 0.2);
 
     --ff-primary: 'Nunito Sans', sans-serif;
     --fz-300: 0.875rem;
     --fz-400: 1rem;
+    --fz-600: 2rem;
+
+    --fw-semi-bold: 600;
   }
 
   * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    transition-property: background-color, color;
-    transition-duration: 250ms;
+    border: 0;
     font-family: var(--ff-primary);
+    color: ${props => props.theme.colors.text};
+    text-decoration: none;
+    list-style: none;
+    transition-property: background-color 250ms, color 250ms;
+    -o-transition-property: background-color 250ms, color 250ms;
+    -webkit-transition-property: background-color 250ms, color 250ms;
+    -moz-transition-property: background-color 250ms, color 250ms;
+  }
+
+  body {
+    background-color: ${props => props.theme.colors.background};
   }
 
   img  {
@@ -33,5 +39,6 @@ export const GlobalStyle = createGlobalStyle`
   .App {
     display: flex;
     flex-direction: column;
+    min-height: 100vh;
   }
 `
