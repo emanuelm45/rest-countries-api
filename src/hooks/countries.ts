@@ -1,37 +1,50 @@
+import { useEffect, useState } from 'react'
 import { useQuery } from 'react-query'
 
-export async function getAllCountries(): Promise<Object[] | any> {
-  try {
-    const response = await fetch(`https://restcountries.com/v3.1/all`)
-    const data = await response.json()
-    if (!response.ok) {
-      throw new Error(data.statusText)
+export function getAllCountries() {
+  return useQuery('getAllCountries', async () => {
+    return await fetch(`https://restcountries.com/v3.1/all`).then(data =>
+      data.json()
+    )
+  })
+}
+
+export function getCountryByCode(code: string) {
+  const {
+    data: countryData,
+    isLoading: countryisLoading,
+    isFetched: countryIsFetched,
+    error: countryError,
+    isError: countryIsError
+  } = useQuery(['getCountryByCode', code], async () => {
+    return await fetch(`https://restcountries.com/v3.1/alpha/${code}`).then(
+      data => data.json().then(data => data[0])
+    )
+  })
+
+  const codes = countryData?.borders?.join(',')
+
+  const {
+    data: bordersData,
+    isLoading: bordersisLoading,
+    error: bordersError,
+    isError: bordersIsError
+  } = useQuery(
+    ['getCountriesByCode', code],
+    async () => {
+      return await fetch(`https://restcountries.com/v3.1/alpha?codes=${codes}`)
+        .then(data => data.json())
+        .catch(error => error)
+    },
+    {
+      enabled: !!countryData && !!codes && countryIsFetched
     }
-    return data.slice(0, 15)
-  } catch (error) {
-    return error
-  }
-}
-
-export function useGetAllCountries() {
-  return useQuery('getAllCountries', () => getAllCountries().then(data => data))
-}
-
-export async function getCountryByCode(code: string): Promise<Object[] | any> {
-  try {
-    const response = await fetch(`https://restcountries.com/v3.1/alpha/${code}`)
-    const data = await response.json()
-    if (!response.ok) {
-      throw new Error(data.statusText)
-    }
-    return data[0]
-  } catch (error) {
-    return error
-  }
-}
-
-export function useGetCountryByCode(code: string) {
-  return useQuery('getCountryByCode', () =>
-    getCountryByCode(code).then(data => data)
   )
+  return {
+    countryData: countryData,
+    bordersData: bordersData,
+    isLoading: countryisLoading || bordersisLoading,
+    error: countryError || bordersError,
+    isError: countryIsError || bordersIsError
+  }
 }

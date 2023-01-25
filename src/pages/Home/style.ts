@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
 export const StyledMain = styled.main`
-  background-color: ${props => props.theme.colors.background};
   flex: 1;
   margin-top: 12vh;
 

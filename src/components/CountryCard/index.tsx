@@ -1,7 +1,7 @@
 import { ICountryCard } from '../../interfaces'
 import { StyledArticle } from './style'
 
-export function CountryCard({
+export default function CountryCard({
   image,
   name,
   population,

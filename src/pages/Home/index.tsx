@@ -1,18 +1,18 @@
-import { CountryCard } from '../../components'
-import { useGetAllCountries } from '../../hooks/countries'
+import { AnimatedRoutes, CountryCard, Spinner } from '../../components'
+import { getAllCountries } from '../../hooks/countries'
 import { ICountry } from '../../interfaces'
 import { StyledMain } from './style'
 import { Link } from 'react-router-dom'
 
 export default function Home() {
-  const { data, isLoading } = useGetAllCountries()
+  const { data, isLoading, isError, error } = getAllCountries()
 
-  if (isLoading) return null
+  if (isLoading) return <Spinner />
 
   return (
     <StyledMain>
-      <div>
-        {data.map((country: ICountry, index: number) => {
+      <AnimatedRoutes>
+        {data.slice(0, 15).map((country: ICountry, index: number) => {
           return (
             <Link to={country.cca2} key={index}>
               <CountryCard
@@ -25,7 +25,7 @@ export default function Home() {
             </Link>
           )
         })}
-      </div>
+      </AnimatedRoutes>
     </StyledMain>
   )
 }

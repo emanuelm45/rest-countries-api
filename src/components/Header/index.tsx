@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom'
 
-export function Header({
+export default function Header({
   handleClick,
   isDarkTheme
 }: {

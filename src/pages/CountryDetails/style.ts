@@ -29,13 +29,13 @@ export const StyledDivContainer = styled.div`
 
   img {
     grid-area: img;
-    border: 1px solid black;
-    width: min(500px, 80vw);
+    /* border: 1px solid black; */
+    width: min(500px, 100%);
   }
 
   & > div {
     grid-area: content;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     display: flex;
     flex-direction: column;
 
