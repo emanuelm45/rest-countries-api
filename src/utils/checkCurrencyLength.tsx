@@ -8,7 +8,7 @@ export function checkCurrencyLength(value: ICountry) {
   }
   return (
     <p>
-      <span>{currencies.length > 1 ? 'Currencies:' : 'Currency'}</span>{' '}
+      <span>{currencies.length > 1 ? 'Currencies:' : 'Currency:'}</span>{' '}
       {currencies.join(', ')}
     </p>
   )

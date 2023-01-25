@@ -6,7 +6,7 @@ export const StyledHeader = styled.header`
   z-index: 1;
   width: 100vw;
   background-color: ${props => props.theme.colors.elements};
-  box-shadow: 0 5px 10px var(--bs-100);
+  box-shadow: 0 5px 10px var(--bs-200);
 
   & > div {
     height: 12vh;
@@ -23,24 +23,24 @@ export const StyledHeader = styled.header`
     h1 {
       font-size: max(var(--fz-400), 2vw);
     }
+  }
+`
 
-    span {
-      padding: 0.4rem 0.6rem;
-      border-radius: 0.8rem;
+export const StyledButtonToggleTheme = styled.span`
+  padding: 0.4rem 0.6rem;
+  border-radius: 0.8rem;
 
-      &:hover {
-        background-color: ${props => props.theme.colors.hover};
-      }
+  &:hover {
+    background-color: ${props => props.theme.colors.hover};
+  }
 
-      svg {
-        margin-right: 0.5rem;
-      }
+  svg {
+    margin-right: 0.5rem;
+  }
 
-      button {
-        background-color: transparent;
-        font-size: max(var(--fz-400), 1vw);
-        pointer-events: none;
-      }
-    }
+  button {
+    background-color: transparent;
+    font-size: max(var(--fz-400), 1vw);
+    pointer-events: none;
   }
 `

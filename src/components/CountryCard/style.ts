@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const StyledArticle = styled.article`
   height: 100%;
-  box-shadow: 1px 1px 10px var(--bs-100);
+  box-shadow: 1px 1px 10px var(--bs-200);
   border-radius: 0.4rem;
   background-color: ${props => props.theme.colors.elements};
 

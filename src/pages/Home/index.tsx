@@ -3,6 +3,7 @@ import { getAllCountries } from '../../hooks/countries'
 import { ICountry } from '../../interfaces'
 import { StyledMain } from './style'
 import { Link } from 'react-router-dom'
+import { animationAllCountries } from '../../components/AnimatedRoutes'
 
 export default function Home() {
   const { data, isLoading, isError, error } = getAllCountries()
@@ -11,7 +12,7 @@ export default function Home() {
 
   return (
     <StyledMain>
-      <AnimatedRoutes>
+      <AnimatedRoutes animation={animationAllCountries}>
         {data.slice(0, 15).map((country: ICountry, index: number) => {
           return (
             <Link to={country.cca2} key={index}>

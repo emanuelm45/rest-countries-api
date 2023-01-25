@@ -2,12 +2,13 @@ import { createGlobalStyle } from 'styled-components'
 
 export const GlobalStyle = createGlobalStyle`
   :root {
-    --bs-100: hsla(0, 0%, 0%, 0.2);
+    --bs-200: hsla(0, 0%, 0%, 0.2);
+    --bs-500: hsla(0, 0%, 0%, 0.5);
 
     --ff-primary: 'Nunito Sans', sans-serif;
-    --fz-300: 0.875rem;
-    --fz-400: 1rem;
-    --fz-600: 2rem;
+    --fz-300: 1.4;
+    --fz-400: 1.6rem;
+    --fz-600: 3.2rem;
 
     --fw-semi-bold: 600;
   }
@@ -21,19 +22,26 @@ export const GlobalStyle = createGlobalStyle`
     color: ${props => props.theme.colors.text};
     text-decoration: none;
     list-style: none;
-    transition-property: background-color 250ms, color 250ms;
-    -o-transition-property: background-color 250ms, color 250ms;
-    -webkit-transition-property: background-color 250ms, color 250ms;
-    -moz-transition-property: background-color 250ms, color 250ms;
+    transition: background-color 400ms, color 400ms;
+    -o-transition: background-color 400ms, color 400ms;
+    -webkit-transition: background-color 400ms, color 400ms;
+    -moz-transition: background-color 400ms, color 400ms;
   }
 
+  html {
+    font-size: 62.5%; 
+  } 
+  
   body {
     background-color: ${props => props.theme.colors.background};
+    font-size: var(--fz-400);
+    overflow-x: hidden;
   }
 
   img  {
     display: block;
     max-width: 100%;
+    user-select: none;
   }
 
   .App {

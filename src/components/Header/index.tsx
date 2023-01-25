@@ -1,26 +1,23 @@
 import { MouseEventHandler } from 'react'
-import { StyledHeader } from './style'
+import { StyledHeader, StyledButtonToggleTheme } from './style'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons'
-import { Link } from 'react-router-dom'
 
 export default function Header({
-  handleClick,
+  handleToggleTheme: handleClick,
   isDarkTheme
 }: {
-  handleClick: MouseEventHandler
+  handleToggleTheme: MouseEventHandler
   isDarkTheme: boolean
 }) {
   return (
     <StyledHeader>
       <div>
-        <Link to="/">
-          <h1>Where in the world?</h1>
-        </Link>
-        <span onClick={handleClick}>
+        <h1>Where in the world?</h1>
+        <StyledButtonToggleTheme onClick={handleClick}>
           <FontAwesomeIcon icon={isDarkTheme ? faSun : faMoon} />
           <button>{isDarkTheme ? 'Light Mode' : 'Dark Mode'}</button>
-        </span>
+        </StyledButtonToggleTheme>
       </div>
     </StyledHeader>
   )

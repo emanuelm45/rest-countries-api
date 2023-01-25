@@ -14,7 +14,7 @@ function App() {
     setIsDarkTheme(theme === darkTheme)
   }, [theme])
 
-  function handleClick() {
+  function handleToggleTheme() {
     setTheme(theme === lightTheme ? darkTheme : lightTheme)
   }
 
@@ -23,7 +23,10 @@ function App() {
       <ScrollToTop />
       <ThemeProvider theme={theme}>
         <GlobalStyle />
-        <Header handleClick={handleClick} isDarkTheme={isDarkTheme} />
+        <Header
+          handleToggleTheme={handleToggleTheme}
+          isDarkTheme={isDarkTheme}
+        />
         <RoutesApp />
       </ThemeProvider>
     </div>
