@@ -1,5 +1,5 @@
 import { MouseEventHandler } from 'react'
-import { StyledHeader, StyledButtonToggleTheme } from './style'
+import * as Styled from './style'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons'
 
@@ -11,14 +11,14 @@ export default function Header({
   isDarkTheme: boolean
 }) {
   return (
-    <StyledHeader>
+    <Styled.Header>
       <div>
         <h1>Where in the world?</h1>
-        <StyledButtonToggleTheme onClick={handleClick}>
+        <Styled.ButtonToggleTheme onClick={handleClick}>
           <FontAwesomeIcon icon={isDarkTheme ? faSun : faMoon} />
           <button>{isDarkTheme ? 'Light Mode' : 'Dark Mode'}</button>
-        </StyledButtonToggleTheme>
+        </Styled.ButtonToggleTheme>
       </div>
-    </StyledHeader>
+    </Styled.Header>
   )
 }

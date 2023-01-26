@@ -1,47 +1,46 @@
 import { Link, useParams } from 'react-router-dom'
-import { getCountryByCode } from '../../hooks/countries'
-import {
-  StyledButtonBack,
-  StyledDivBorderCountries,
-  StyledDivContainer,
-  StyledDivContent,
-  StyledDivContentContainer,
-  StyledList,
-  StyledMain
-} from './style'
+import { getCountriesByCode } from '../../hooks/countries'
+import * as Styled from './style'
 import { faArrowLeftLong } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { checkCurrencyLength, checkLanguageLength } from '../../utils/'
+import {
+  checkCurrencyLength,
+  checkLanguageLength,
+  formatNumber
+} from '../../utils/'
+import { Spinner } from '../../components'
+import { animationCountryDetails } from '../../animations'
+import { motion } from 'framer-motion'
 import { ICountry } from '../../interfaces'
-import { AnimatedRoutes, Spinner } from '../../components'
-import { animationCountryDetails } from '../../components/AnimatedRoutes'
 
 export default function CountryDetails() {
   const { code } = useParams()
-  const { countryData, bordersData, isLoading, isError, error } =
-    getCountryByCode(String(code))
+  const { country, borderCountries, isLoading } = getCountriesByCode(
+    String(code)
+  )
 
   if (isLoading) return <Spinner />
-  if (isError) return <p>There was an error</p>
-
-  const country: ICountry = countryData
-  const borderCountries: ICountry[] = bordersData
 
   return (
-    <StyledMain>
-      <AnimatedRoutes animation={animationCountryDetails}>
-        <StyledDivContainer>
-          <StyledButtonBack to="/">
+    <Styled.Main>
+      <Styled.MotionDiv
+        variants={animationCountryDetails}
+        initial="initial"
+        animate="animate"
+        exit="exit"
+      >
+        <Styled.DivContainer>
+          <Styled.ButtonBack to="/">
             <FontAwesomeIcon icon={faArrowLeftLong} /> Back
-          </StyledButtonBack>
+          </Styled.ButtonBack>
           <img
             src={country.flags.svg}
             alt={`${country.name.common} flag`}
             title={`${country.name.common} flag`}
           />
-          <StyledDivContentContainer>
+          <Styled.DivContentContainer>
             <h2>{country.name.common}</h2>
-            <StyledDivContent>
+            <Styled.DivContent>
               <div>
                 <p>
                   <span>Native Name:</span>{' '}
@@ -53,7 +52,7 @@ export default function CountryDetails() {
                 </p>
 
                 <p>
-                  <span>Population:</span> {country.population}
+                  <span>Population:</span> {formatNumber(country.population)}
                 </p>
                 <p>
                   <span>Region:</span> {country.region}
@@ -88,27 +87,48 @@ export default function CountryDetails() {
                 {checkCurrencyLength(country)}
                 {checkLanguageLength(country)}
               </div>
-            </StyledDivContent>
+            </Styled.DivContent>
 
-            {borderCountries && (
-              <StyledDivBorderCountries>
+            <Styled.DivBorderCountries>
+              {borderCountries?.length ? (
+                <>
+                  <p>
+                    <span>Border Countries:</span>
+                  </p>
+                  <Styled.List>
+                    {borderCountries.map((border: ICountry, index: number) => {
+                      return (
+                        <Link to={`/${border.cca2}`} key={index}>
+                          <motion.li
+                            initial={{
+                              opacity: 0,
+                              translateY: -50
+                            }}
+                            animate={{
+                              opacity: 1,
+                              translateY: 0
+                            }}
+                            transition={{
+                              duration: 0.2,
+                              delay: !index ? 0.6 : index * 0.3
+                            }}
+                          >
+                            {border.name.common}
+                          </motion.li>
+                        </Link>
+                      )
+                    })}
+                  </Styled.List>
+                </>
+              ) : (
                 <p>
-                  <span>Border Countries:</span>
+                  <span>No border countries</span>
                 </p>
-                <StyledList>
-                  {borderCountries.map((border, index) => {
-                    return (
-                      <Link to={`/${border.cca2}`} key={index}>
-                        <li>{border.name.common}</li>
-                      </Link>
-                    )
-                  })}
-                </StyledList>
-              </StyledDivBorderCountries>
-            )}
-          </StyledDivContentContainer>
-        </StyledDivContainer>
-      </AnimatedRoutes>
-    </StyledMain>
+              )}
+            </Styled.DivBorderCountries>
+          </Styled.DivContentContainer>
+        </Styled.DivContainer>
+      </Styled.MotionDiv>
+    </Styled.Main>
   )
 }

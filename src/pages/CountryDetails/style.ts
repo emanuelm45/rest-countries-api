@@ -1,18 +1,20 @@
 import styled from 'styled-components'
 import { devices } from '../../assets/devices'
 import { Link } from 'react-router-dom'
+import { motion } from 'framer-motion'
 
-export const StyledMain = styled.main`
+export const Main = styled.main`
   width: 100vw;
-  flex: 1;
   margin-top: 18vh;
   /* DELETEME */
   padding-bottom: 5rem;
 `
 
-export const StyledDivContentContainer = styled.div``
+export const MotionDiv = styled(motion.div)``
 
-export const StyledButtonBack = styled(Link)`
+export const DivContentContainer = styled.div``
+
+export const ButtonBack = styled(Link)`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -23,7 +25,7 @@ export const StyledButtonBack = styled(Link)`
   border-radius: 4px;
 `
 
-export const StyledDivContainer = styled.div`
+export const DivContainer = styled.div`
   width: 80vw;
   margin: 0 auto;
   display: grid;
@@ -43,14 +45,13 @@ export const StyledDivContainer = styled.div`
     flex-direction: column;
   }
 
-  ${StyledButtonBack} {
+  ${ButtonBack} {
     grid-area: button;
   }
 
   img {
     grid-area: img;
     max-height: 450px;
-    place-self: center;
     box-shadow: 0px 0px 5px 2px var(--bs-200);
   }
 
@@ -72,7 +73,7 @@ export const StyledDivContainer = styled.div`
   }
 `
 
-export const StyledDivContent = styled.div`
+export const DivContent = styled.div`
   display: flex;
   gap: 5rem;
   width: 100%;
@@ -90,7 +91,7 @@ export const StyledDivContent = styled.div`
   }
 `
 
-export const StyledDivBorderCountries = styled.div`
+export const DivBorderCountries = styled.div`
   display: flex;
   gap: 1rem;
   align-items: center;
@@ -107,7 +108,7 @@ export const StyledDivBorderCountries = styled.div`
   }
 `
 
-export const StyledList = styled.ul`
+export const List = styled.ul`
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;

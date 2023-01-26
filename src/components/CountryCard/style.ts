@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const StyledArticle = styled.article`
+export const Article = styled.article`
   height: 100%;
   box-shadow: 1px 1px 10px var(--bs-200);
   border-radius: 0.4rem;
@@ -19,6 +19,7 @@ export const StyledArticle = styled.article`
 
     p {
       margin: 0.3rem 0;
+
       span {
         font-weight: var(--fw-semi-bold);
       }

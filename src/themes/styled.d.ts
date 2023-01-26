@@ -7,7 +7,8 @@ declare module 'styled-components' {
       elements: string
       text: string
       input: string
-      hover: string
+      hoverDark: string
+      hoverLight: string
     }
   }
 }

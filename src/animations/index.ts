@@ -1,5 +1,3 @@
-import { motion, Variants } from 'framer-motion'
-
 export const animationCountryDetails = {
   initial: {
     opacity: 0,
@@ -10,12 +8,12 @@ export const animationCountryDetails = {
     x: 0,
     transition: {
       duration: 0.5,
-      delay: 0.5
+      delay: 0.4
     }
   },
   exit: {
     opacity: 0,
-    x: -10,
+    x: -15,
     transition: {
       duration: 0.3
     }
@@ -24,12 +22,10 @@ export const animationCountryDetails = {
 
 export const animationAllCountries = {
   initial: {
-    opacity: 0,
-    y: 40
+    opacity: 0
   },
   animate: {
     opacity: 1,
-    y: 0,
     transition: {
       duration: 0.5,
       delay: 0.3
@@ -37,28 +33,8 @@ export const animationAllCountries = {
   },
   exit: {
     opacity: 0,
-    y: 40,
     transition: {
       duration: 0.3
     }
   }
-}
-
-export default function AnimatedRoutes({
-  children,
-  animation
-}: {
-  children: JSX.Element
-  animation: Variants
-}) {
-  return (
-    <motion.div
-      variants={animation}
-      initial="initial"
-      animate="animate"
-      exit="exit"
-    >
-      {children}
-    </motion.div>
-  )
 }

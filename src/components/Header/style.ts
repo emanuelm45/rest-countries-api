@@ -1,9 +1,10 @@
 import styled from 'styled-components'
 import { devices } from '../../assets/devices'
 
-export const StyledHeader = styled.header`
+export const Header = styled.header`
   position: fixed;
   z-index: 1;
+  top: 0;
   width: 100vw;
   background-color: ${props => props.theme.colors.elements};
   box-shadow: 0 5px 10px var(--bs-200);
@@ -26,12 +27,12 @@ export const StyledHeader = styled.header`
   }
 `
 
-export const StyledButtonToggleTheme = styled.span`
-  padding: 0.4rem 0.6rem;
+export const ButtonToggleTheme = styled.span`
+  padding: 0.8rem 1rem;
   border-radius: 0.8rem;
 
   &:hover {
-    background-color: ${props => props.theme.colors.hover};
+    background-color: ${props => props.theme.colors.hoverLight};
   }
 
   svg {

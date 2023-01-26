@@ -1,6 +1,7 @@
-import AnimatedRoutes from './AnimatedRoutes'
 import CountryCard from './CountryCard'
 import Header from './Header'
 import Spinner from './Spinner'
+import Error from './Error'
+import Filters from './Filters'
 
-export { AnimatedRoutes, CountryCard, Header, Spinner }
+export { CountryCard, Header, Spinner, Error, Filters }

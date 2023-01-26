@@ -1,5 +1,6 @@
 import { ICountryCard } from '../../interfaces'
-import { StyledArticle } from './style'
+import * as Styled from './style'
+import { formatNumber } from '../../utils'
 
 export default function CountryCard({
   image,
@@ -9,25 +10,29 @@ export default function CountryCard({
   capital
 }: ICountryCard) {
   return (
-    <StyledArticle>
+    <Styled.Article>
       <header>
         <img src={image} alt={`${name} flag`} title={`${name} flag`} />
       </header>
       <div>
         <h2>{name}</h2>
         <p>
-          <span>Population:</span> {population}
+          <span>Population:</span> {formatNumber(population)}
         </p>
         <p>
           <span>Region:</span> {region}
         </p>
-        {capital && (
+        {capital ? (
           <p>
             <span>{capital.length > 1 ? 'Capitals:' : 'Capital:'}</span>{' '}
             {capital?.join(', ')}
           </p>
+        ) : (
+          <p>
+            <span>No capital</span>
+          </p>
         )}
       </div>
-    </StyledArticle>
+    </Styled.Article>
   )
 }

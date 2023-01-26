@@ -43,10 +43,4 @@ export const GlobalStyle = createGlobalStyle`
     max-width: 100%;
     user-select: none;
   }
-
-  .App {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-  }
 `

@@ -4,7 +4,7 @@ import { GlobalStyle } from './assets/GlobalStyle'
 import { Header } from './components'
 import { RoutesApp } from './routes'
 import { lightTheme, darkTheme } from './themes/'
-import ScrollToTop from './utils/ScrollToTop'
+import { ScrollToTop } from './utils/'
 
 function App() {
   const [theme, setTheme] = useState(lightTheme)
