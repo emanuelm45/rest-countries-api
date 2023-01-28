@@ -1,21 +1,25 @@
 import { useEffect, useState } from 'react'
-import { ThemeProvider } from 'styled-components'
+import { DefaultTheme, ThemeProvider } from 'styled-components'
 import { GlobalStyle } from './assets/GlobalStyle'
 import { Header } from './components'
-import { RoutesApp } from './routes'
-import { lightTheme, darkTheme } from './themes/'
-import { ScrollToTop } from './utils/'
+import RoutesApp from './routes'
+import themes from './themes'
+import { ScrollToTop } from './utils'
+import { usePersistedState } from './hooks'
 
-function App() {
-  const [theme, setTheme] = useState(lightTheme)
-  const [isDarkTheme, setIsDarkTheme] = useState(theme === darkTheme)
+export default function App() {
+  const [theme, setTheme] = usePersistedState<DefaultTheme>(
+    'theme',
+    themes.light
+  )
+  const [isDarkTheme, setIsDarkTheme] = useState(theme === themes.dark)
 
   useEffect(() => {
-    setIsDarkTheme(theme === darkTheme)
+    setIsDarkTheme(theme === themes.dark)
   }, [theme])
 
   function handleToggleTheme() {
-    setTheme(theme === lightTheme ? darkTheme : lightTheme)
+    setTheme(theme === themes.light ? themes.dark : themes.light)
   }
 
   return (
@@ -32,5 +36,3 @@ function App() {
     </div>
   )
 }
-
-export default App

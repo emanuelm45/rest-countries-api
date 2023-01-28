@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { devices } from '../../assets/devices'
 
-export const Header = styled.header`
+const Header = styled.header`
   position: fixed;
   z-index: 1;
   top: 0;
@@ -27,7 +27,7 @@ export const Header = styled.header`
   }
 `
 
-export const ButtonToggleTheme = styled.span`
+const ButtonToggleTheme = styled.span`
   padding: 0.8rem 1rem;
   border-radius: 0.8rem;
 
@@ -45,3 +45,5 @@ export const ButtonToggleTheme = styled.span`
     pointer-events: none;
   }
 `
+
+export default { Header, ButtonToggleTheme }

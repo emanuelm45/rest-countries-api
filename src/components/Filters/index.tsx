@@ -1,5 +1,5 @@
 import { Dispatch } from 'react'
-import * as Styled from './style'
+import Styled from './style'
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Select from 'react-select'
@@ -41,14 +41,14 @@ export default function Filters({
 }) {
   const theme = useTheme()
 
-  const colorStyles = {
+  const selectStyles = {
     control: (styles: any) => ({
       ...styles,
       backgroundColor: 'transparent',
       border: 'none',
       borderRadius: '4px',
-      width: '20rem',
-      height: '100%',
+      width: '22rem',
+      height: '6rem',
       boxShadow: '0 0 5px 2px hsla(0, 0%, 0%, .2)'
     }),
     container: (styles: any) => ({ ...styles, height: '100%' }),
@@ -94,9 +94,10 @@ export default function Filters({
       </Styled.DivInputContainer>
 
       <Select
+        isSearchable={false}
         onChange={ev => handleRegion(ev.value)}
         options={options}
-        styles={colorStyles}
+        styles={selectStyles}
         placeholder="Filter by Region"
       />
     </Styled.DivContainer>

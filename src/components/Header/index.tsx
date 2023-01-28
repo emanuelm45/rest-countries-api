@@ -1,5 +1,5 @@
 import { MouseEventHandler } from 'react'
-import * as Styled from './style'
+import Styled from './style'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons'
 

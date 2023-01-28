@@ -1,9 +1,8 @@
-import { useEffect, useState } from 'react'
 import { useQuery } from 'react-query'
-import { UseDataCountries } from '../contexts'
+import { useDataCountries } from '../contexts'
 import { ICountry } from '../interfaces'
 
-export function getAllCountries() {
+function getAllCountries() {
   return useQuery('getAllCountries', async () => {
     return await fetch(`https://restcountries.com/v3.1/all`).then(data =>
       data.json()
@@ -11,8 +10,8 @@ export function getAllCountries() {
   })
 }
 
-export function getCountriesByCode(paramsCode: string) {
-  const { data: countries, isLoading: countriesIsLoading } = UseDataCountries()
+function getCountriesByCode(paramsCode: string) {
+  const { data: countries, isLoading: countriesIsLoading } = useDataCountries()
 
   const codeLowerCase = paramsCode?.toLocaleLowerCase()
   const country = countries?.filter(
@@ -30,7 +29,7 @@ export function getCountriesByCode(paramsCode: string) {
         ).then(data => data.json())
       },
       {
-        enabled: !!country
+        enabled: !!country && !!codes
       }
     )
 
@@ -40,3 +39,5 @@ export function getCountriesByCode(paramsCode: string) {
     isLoading: countriesIsLoading || borderCountriesIsLoading
   }
 }
+
+export { getAllCountries, getCountriesByCode }

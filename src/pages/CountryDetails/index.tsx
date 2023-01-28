@@ -1,13 +1,13 @@
 import { Link, useParams } from 'react-router-dom'
-import { getCountriesByCode } from '../../hooks/countries'
-import * as Styled from './style'
+import { getCountriesByCode } from '../../hooks'
+import Styled from './style'
 import { faArrowLeftLong } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   checkCurrencyLength,
   checkLanguageLength,
   formatNumber
-} from '../../utils/'
+} from '../../utils'
 import { Spinner } from '../../components'
 import { animationCountryDetails } from '../../animations'
 import { motion } from 'framer-motion'

@@ -1,16 +1,19 @@
 import { CountryCard, Spinner, Error, Filters } from '../../components'
 import { ICountry } from '../../interfaces'
-import * as Styled from './style'
+import Styled from './style'
 import { Link } from 'react-router-dom'
 import { animationAllCountries } from '../../animations'
 import { useState } from 'react'
-import { UseDataCountries } from '../../contexts'
+import { useDataCountries } from '../../contexts'
+import { usePersistedState } from '../../hooks'
+import { ScrollToLastCountry } from '../../utils/Scroll'
 
 export default function Home() {
   const [region, setRegion] = useState('')
   const [search, setSearch] = useState('')
+  const [position, setPosition] = usePersistedState<number>('pos', 0)
 
-  const { data, isLoading } = UseDataCountries()
+  const { data, isLoading } = useDataCountries()
 
   if (isLoading) return <Spinner />
 
@@ -28,11 +31,11 @@ export default function Home() {
       )
     })
     .sort((a, b) => a.name.common.localeCompare(b.name.common))
-  // put in alphabetical order
 
   return (
-    <Styled.Main>
-      <Styled.MotionDiv
+    <>
+      <ScrollToLastCountry position={position} />
+      <Styled.MotionMain
         variants={animationAllCountries}
         initial="initial"
         animate="animate"
@@ -43,7 +46,11 @@ export default function Home() {
           {filteredCountries?.length ? (
             filteredCountries.map((country: ICountry, index: number) => {
               return (
-                <Link to={country.cca2} key={index}>
+                <Link
+                  to={country.cca2}
+                  key={index}
+                  onClick={ev => setPosition(ev.currentTarget.offsetTop)}
+                >
                   <CountryCard
                     image={country.flags.png}
                     name={country.name.common}
@@ -58,7 +65,7 @@ export default function Home() {
             <Error />
           )}
         </Styled.DivContainer>
-      </Styled.MotionDiv>
-    </Styled.Main>
+      </Styled.MotionMain>
+    </>
   )
 }

@@ -1,5 +1,5 @@
-import globeImage from '../../../public/favicon.png'
-import * as Styled from './style'
+import globeImage from '../../assets/images/favicon.png'
+import Styled from './style'
 
 export default function Error() {
   return (

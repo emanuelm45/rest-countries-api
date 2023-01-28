@@ -1,6 +1,6 @@
 import { DefaultTheme } from 'styled-components'
 
-export const darkTheme: DefaultTheme = {
+const dark: DefaultTheme = {
   colors: {
     background: 'hsl(207, 26%, 17%)',
     elements: 'hsl(208, 23%, 22%)',
@@ -11,7 +11,7 @@ export const darkTheme: DefaultTheme = {
   }
 }
 
-export const lightTheme: DefaultTheme = {
+const light: DefaultTheme = {
   colors: {
     background: 'hsl(0, 0%, 98%)',
     elements: 'hsl(0, 0%, 100%)',
@@ -21,3 +21,5 @@ export const lightTheme: DefaultTheme = {
     hoverLight: 'hsl(0, 0%, 85%)'
   }
 }
+
+export default { dark, light }

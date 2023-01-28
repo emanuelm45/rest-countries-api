@@ -1,24 +1,27 @@
 import { motion } from 'framer-motion'
 import styled from 'styled-components'
 
-export const MotionDiv = styled(motion.div)`
-  position: absolute;
+const Motion = styled(motion.div)`
+  /* position: absolute;
   left: 50%;
-  transform: translate(-50%);
+  transform: translate(-50%); */
 `
 
-export const DivContainer = styled.div`
+const DivContainer = styled.div`
   min-height: 40vh;
 `
 
-export const Main = styled.main`
+const MotionMain = styled(motion.main)`
   margin-top: 18vh;
+  padding-bottom: 5rem;
 
   ${DivContainer} {
     width: 80vw;
-    margin: 8vh auto 0;
+    margin: 4rem auto 0;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(22rem, 1fr));
     gap: 5rem;
   }
 `
+
+export default { DivContainer, MotionMain }

@@ -7,7 +7,7 @@ import { CountryDetails, Home } from '../pages'
 // const Home = lazy(() => import('../pages/Home'))
 // const CountryDetails = lazy(() => import('../pages/CountryDetails'))
 
-export function RoutesApp() {
+export default function RoutesApp() {
   const location = useLocation()
 
   return (

@@ -3,18 +3,17 @@ import { devices } from '../../assets/devices'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 
-export const Main = styled.main`
+const Main = styled.main`
   width: 100vw;
   margin-top: 18vh;
-  /* DELETEME */
   padding-bottom: 5rem;
 `
 
-export const MotionDiv = styled(motion.div)``
+const MotionDiv = styled(motion.div)``
 
-export const DivContentContainer = styled.div``
+const DivContentContainer = styled.div``
 
-export const ButtonBack = styled(Link)`
+const ButtonBack = styled(Link)`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -25,7 +24,7 @@ export const ButtonBack = styled(Link)`
   border-radius: 4px;
 `
 
-export const DivContainer = styled.div`
+const DivContainer = styled.div`
   width: 80vw;
   margin: 0 auto;
   display: grid;
@@ -73,7 +72,7 @@ export const DivContainer = styled.div`
   }
 `
 
-export const DivContent = styled.div`
+const DivContent = styled.div`
   display: flex;
   gap: 5rem;
   width: 100%;
@@ -91,7 +90,7 @@ export const DivContent = styled.div`
   }
 `
 
-export const DivBorderCountries = styled.div`
+const DivBorderCountries = styled.div`
   display: flex;
   gap: 1rem;
   align-items: center;
@@ -108,7 +107,7 @@ export const DivBorderCountries = styled.div`
   }
 `
 
-export const List = styled.ul`
+const List = styled.ul`
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
@@ -123,3 +122,14 @@ export const List = styled.ul`
     border-radius: 4px;
   }
 `
+
+export default {
+  Main,
+  MotionDiv,
+  DivContentContainer,
+  ButtonBack,
+  DivContainer,
+  DivContent,
+  DivBorderCountries,
+  List
+}

@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const DivError = styled.div`
+const DivError = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -16,3 +16,5 @@ export const DivError = styled.div`
     width: 20%;
   }
 `
+
+export default { DivError }

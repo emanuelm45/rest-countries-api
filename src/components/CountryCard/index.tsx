@@ -1,5 +1,5 @@
 import { ICountryCard } from '../../interfaces'
-import * as Styled from './style'
+import Styled from './style'
 import { formatNumber } from '../../utils'
 
 export default function CountryCard({

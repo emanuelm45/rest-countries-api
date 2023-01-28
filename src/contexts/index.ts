@@ -1,7 +1,5 @@
-import {
+export {
+  useDataCountries,
   DataCountries,
-  DataCountriesProvider,
-  UseDataCountries
+  DataCountriesProvider
 } from './DataCountries'
-
-export { DataCountries, DataCountriesProvider, UseDataCountries }

@@ -1,4 +1,4 @@
-export const animationCountryDetails = {
+const animationCountryDetails = {
   initial: {
     opacity: 0,
     x: -100
@@ -20,7 +20,7 @@ export const animationCountryDetails = {
   }
 }
 
-export const animationAllCountries = {
+const animationAllCountries = {
   initial: {
     opacity: 0
   },
@@ -38,3 +38,5 @@ export const animationAllCountries = {
     }
   }
 }
+
+export { animationCountryDetails, animationAllCountries }
