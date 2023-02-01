@@ -78,8 +78,8 @@ export default function Filters({
     })
   }
 
-  function handleRegion(value: number) {
-    setRegion(options[value].label)
+  function handleRegion(value: number | undefined) {
+    setRegion(options[parseInt(value)].label)
   }
 
   return (
@@ -95,7 +95,7 @@ export default function Filters({
 
       <Select
         isSearchable={false}
-        onChange={ev => handleRegion(ev.value)}
+        onChange={ev => handleRegion(ev?.value)}
         options={options}
         styles={selectStyles}
         placeholder="Filter by Region"
