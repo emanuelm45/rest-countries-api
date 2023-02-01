@@ -12,14 +12,16 @@ export default function App() {
     'theme',
     themes.light
   )
-  const [isDarkTheme, setIsDarkTheme] = useState(theme === themes.dark)
+  const [isDarkTheme, setIsDarkTheme] = useState(
+    theme.name === themes.dark.name
+  )
 
   useEffect(() => {
-    setIsDarkTheme(theme === themes.dark)
+    setIsDarkTheme(theme.name === themes.dark.name)
   }, [theme])
 
   function handleToggleTheme() {
-    setTheme(theme === themes.light ? themes.dark : themes.light)
+    setTheme(!isDarkTheme ? themes.dark : themes.light)
   }
 
   return (

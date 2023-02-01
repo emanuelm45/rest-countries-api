@@ -51,10 +51,9 @@ export default function Home() {
           {filteredCountries?.length ? (
             filteredCountries.map((country: ICountry, index: number) => {
               return (
-                <Styled.CountryCardContainer>
+                <Styled.CountryCardContainer key={index}>
                   <Link
                     to={country.cca2}
-                    key={index}
                     onClick={ev => setPosition(ev.currentTarget.offsetTop)}
                   >
                     <CountryCard
