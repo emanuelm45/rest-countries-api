@@ -3,15 +3,15 @@ import { devices } from '../../assets/devices'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 
-const Main = styled.main`
+const MotionMain = styled(motion.main)`
   width: 100vw;
   margin-top: 18vh;
-  padding-bottom: 5rem;
+  padding-bottom: 10rem;
 `
 
 const MotionDiv = styled(motion.div)``
 
-const DivContentContainer = styled.div``
+const MotionDivContentContainer = styled(motion.div)``
 
 const ButtonBack = styled(Link)`
   display: flex;
@@ -90,7 +90,7 @@ const DivContent = styled.div`
   }
 `
 
-const DivBorderCountries = styled.div`
+const MotionDivBorderCountries = styled(motion.div)`
   display: flex;
   gap: 1rem;
   align-items: center;
@@ -124,12 +124,12 @@ const List = styled.ul`
 `
 
 export default {
-  Main,
+  MotionMain,
   MotionDiv,
-  DivContentContainer,
+  MotionDivContentContainer,
   ButtonBack,
   DivContainer,
   DivContent,
-  DivBorderCountries,
+  MotionDivBorderCountries,
   List
 }

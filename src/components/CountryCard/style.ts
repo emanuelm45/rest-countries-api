@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-const Article = styled.article`
+const DivContent = styled.div`
   height: 100%;
   box-shadow: 1px 1px 10px var(--bs-200);
   border-radius: 0.4rem;
@@ -27,4 +27,4 @@ const Article = styled.article`
   }
 `
 
-export default { Article }
+export default { DivContent }

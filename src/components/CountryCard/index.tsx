@@ -10,7 +10,7 @@ export default function CountryCard({
   capital
 }: ICountryCard) {
   return (
-    <Styled.Article>
+    <Styled.DivContent>
       <header>
         <img src={image} alt={`${name} flag`} title={`${name} flag`} />
       </header>
@@ -33,6 +33,6 @@ export default function CountryCard({
           </p>
         )}
       </div>
-    </Styled.Article>
+    </Styled.DivContent>
   )
 }

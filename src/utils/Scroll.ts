@@ -9,7 +9,7 @@ function ScrollToTop() {
       document.documentElement.scrollTo({
         top: 0
       })
-    }, 200)
+    }, 500)
   }, [pathname])
 
   return null

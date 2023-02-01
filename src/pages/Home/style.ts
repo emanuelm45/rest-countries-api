@@ -1,21 +1,15 @@
 import { motion } from 'framer-motion'
 import styled from 'styled-components'
 
-const Motion = styled(motion.div)`
-  /* position: absolute;
-  left: 50%;
-  transform: translate(-50%); */
-`
-
-const DivContainer = styled.div`
+const MotionDivContainer = styled(motion.div)`
   min-height: 40vh;
 `
 
 const MotionMain = styled(motion.main)`
   margin-top: 18vh;
-  padding-bottom: 5rem;
+  padding-bottom: 10rem;
 
-  ${DivContainer} {
+  ${MotionDivContainer} {
     width: 80vw;
     margin: 4rem auto 0;
     display: grid;
@@ -24,4 +18,6 @@ const MotionMain = styled(motion.main)`
   }
 `
 
-export default { DivContainer, MotionMain }
+const CountryCardContainer = styled(motion.article)``
+
+export default { MotionDivContainer, MotionMain, CountryCardContainer }

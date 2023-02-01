@@ -1,12 +1,13 @@
 import { CountryCard, Spinner, Error, Filters } from '../../components'
 import { ICountry } from '../../interfaces'
 import Styled from './style'
-import { Link } from 'react-router-dom'
-import { animationAllCountries } from '../../animations'
+import { animationHome } from '../../animations'
 import { useState } from 'react'
 import { useDataCountries } from '../../contexts'
 import { usePersistedState } from '../../hooks'
 import { ScrollToLastCountry } from '../../utils/Scroll'
+import { motion, Variants } from 'framer-motion'
+import { Link } from 'react-router-dom'
 
 export default function Home() {
   const [region, setRegion] = useState('')
@@ -36,35 +37,41 @@ export default function Home() {
     <>
       <ScrollToLastCountry position={position} />
       <Styled.MotionMain
-        variants={animationAllCountries}
+        variants={animationHome}
         initial="initial"
         animate="animate"
         exit="exit"
       >
         <Filters setSearch={setSearch} setRegion={setRegion} />
-        <Styled.DivContainer>
+        <Styled.MotionDivContainer
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1, transition: { delay: 0.5 } }}
+          exit={{ opacity: 0 }}
+        >
           {filteredCountries?.length ? (
             filteredCountries.map((country: ICountry, index: number) => {
               return (
-                <Link
-                  to={country.cca2}
-                  key={index}
-                  onClick={ev => setPosition(ev.currentTarget.offsetTop)}
-                >
-                  <CountryCard
-                    image={country.flags.png}
-                    name={country.name.common}
-                    population={country.population}
-                    region={country.region}
-                    capital={country.capital}
-                  />
-                </Link>
+                <Styled.CountryCardContainer>
+                  <Link
+                    to={country.cca2}
+                    key={index}
+                    onClick={ev => setPosition(ev.currentTarget.offsetTop)}
+                  >
+                    <CountryCard
+                      image={country.flags.png}
+                      name={country.name.common}
+                      population={country.population}
+                      region={country.region}
+                      capital={country.capital}
+                    />
+                  </Link>
+                </Styled.CountryCardContainer>
               )
             })
           ) : (
             <Error />
           )}
-        </Styled.DivContainer>
+        </Styled.MotionDivContainer>
       </Styled.MotionMain>
     </>
   )

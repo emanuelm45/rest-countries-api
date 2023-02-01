@@ -22,25 +22,26 @@ export const GlobalStyle = createGlobalStyle`
     color: ${props => props.theme.colors.text};
     text-decoration: none;
     list-style: none;
-    transition: background-color 400ms, color 400ms;
-    -o-transition: background-color 400ms, color 400ms;
-    -webkit-transition: background-color 400ms, color 400ms;
-    -moz-transition: background-color 400ms, color 400ms;
   }
 
   html {
     font-size: 62.5%; 
+    overflow-x: hidden;
   } 
   
   body {
     background-color: ${props => props.theme.colors.background};
     font-size: var(--fz-400);
-    overflow-x: hidden;
   }
 
   img  {
     display: block;
     max-width: 100%;
     user-select: none;
+  }
+
+  .App {
+    min-height: 82vh;
+    position: relative;
   }
 `

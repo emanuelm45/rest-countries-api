@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { DefaultTheme, ThemeProvider } from 'styled-components'
 import { GlobalStyle } from './assets/GlobalStyle'
-import { Header } from './components'
+import { Footer, Header } from './components'
 import RoutesApp from './routes'
 import themes from './themes'
 import { ScrollToTop } from './utils'
@@ -32,6 +32,7 @@ export default function App() {
           isDarkTheme={isDarkTheme}
         />
         <RoutesApp />
+        <Footer />
       </ThemeProvider>
     </div>
   )
