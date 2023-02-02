@@ -79,7 +79,7 @@ export default function Filters({
   }
 
   function handleRegion(value: number | undefined) {
-    if (!value) return
+    if (value === undefined) return
     setRegion(options[value].label)
   }
 
